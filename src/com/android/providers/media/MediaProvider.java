@@ -4297,7 +4297,6 @@ public class MediaProvider extends ContentProvider {
                                         imageMicroThumbs = MiniThumbFile.instance(
                                             Images.Media.EXTERNAL_CONTENT_URI);
                                     }
-                                    imageMicroThumbs.eraseMiniThumb(long);
                                 }
                             } else if (mediaType == FileColumns.MEDIA_TYPE_VIDEO) {
                                 deleteIfAllowed(uri, data);
@@ -4322,7 +4321,6 @@ public class MediaProvider extends ContentProvider {
                                         videoMicroThumbs = MiniThumbFile.instance(
                                         Video.Media.EXTERNAL_CONTENT_URI);
                                     }
-                                    videoMicroThumbs.eraseMiniThumb(long);
                                 }
                             } else if (mediaType == FileColumns.MEDIA_TYPE_AUDIO) {
                                 if (!database.mInternal) {
@@ -4513,7 +4511,6 @@ public class MediaProvider extends ContentProvider {
             db.execSQL("delete from videothumbnails where video_id=" + id);
         }
         MiniThumbFile microThumbs = MiniThumbFile.instance(uri);
-        microThumbs.eraseMiniThumb(long);
         microThumbs.deactivate();
     }
 
